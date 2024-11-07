@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h3>Logo</h3>
+        <div>
+            <h2>Welcome</h2>
+        </div>
+        <div></div>
+    </header>
+
+    <section id="main-section">
+        <div id="main-div">
+            <p>Welcome to the quiz <br>click on the button bellow to start</p>
+            <button id="start">Start</button>
+            <p id="timer-p" style="display: none;"></p>
+        </div>
+    </section>
+    <div id="result-window" style="width: 100vw;" >
+        <h5 id="result-p" style="display: none;"></h5>
+        <button id="restart">Restart</button>
+    </div>
+        <!--  -->
+    <section id="quiz-section" style="display: none;">
+        <div id="quiz">
+            <div id="question-div">
+                <div id="subdiv-ques">
+                    <h3>Question X:</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab facere corporis, quod aperiam obcaecati optio ipsum blanditiis vel! Beatae, impedit.</p>
+                </div>
+            </div>
+            <div id="response-div">
+                <div id="subdiv-res">
+                    <div class="answer" id="answer-1">
+                        <label><br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora cumque, repellat vero aliquam similique cum.<br><br></label>
+                        <input type="radio" name="response" value="1">
+                    </div>
+                    <div class="answer" id="answer-2">
+                        <label><br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora cumque, repellat vero aliquam similique cum.<br><br></label>
+                        <input type="radio" name="response" value="2">
+                    </div>
+                    <div class="answer" id="answer-3">
+                        <label><br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora cumque, repellat vero aliquam similique cum.<br><br></label>
+                        <input type="radio" name="response" value="3">
+                    </div>
+                </div>
+                <button id="submit">Submit</button>
+            </div>
+        </div>
+    </section>
+
+
+    
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
