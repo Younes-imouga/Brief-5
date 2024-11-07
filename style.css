@@ -52,6 +52,8 @@ header{
 
 #subdiv-ques{
     border: 1px solid black;
+    border-radius: 15px;
+    background-color: rgb(235, 235, 235);
     width: 100%;
     text-align: center;
     font-size: 1.3em;
@@ -59,7 +61,8 @@ header{
 
 .answer{
     width: 30%;
-    border: 1px solid green;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 15px;
 }
 
 #response-div{
@@ -80,42 +83,71 @@ header{
     margin-bottom: 3%;
 }
 
-@media (max-width: 700px) {
-    #subdiv-res{
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-    .answer{
-
-        width: 90%;
-        margin-bottom: 15px;
-    }
-}
-
 input{
     width: 30px;
     height: 30px;
 }
 
-#submit{
+.submit{
     width: 150px; 
     font-size: 2em; 
     border-radius: 10px; 
     margin: auto; 
     background-color: #1BE8FF;
 }
-#submit:hover{
+.submit:hover{
     background-color: #23adbd;
 }
-#submit:active{
+.submit:active{
     background-color: #77d0da;
 }
 
 #result-p{
     margin: auto; 
     margin-top: 20px; 
-    width: 700px; 
+    width: 70%; 
     font-size: 1.8rem; 
     text-align: center;
+}
+
+#restart{
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 200px; 
+    font-size: 2em; 
+    border-radius: 10px; 
+    background-color: #ff1b1b;
+}
+#restart:hover{
+    background-color: #bd2323;
+}
+#restart:active{
+    background-color: #da7777;
+}
+
+#nothingselected{
+    font-size: 2em;
+    color: red;
+}
+
+.answer-btn{
+    width: 30%; 
+    height: 30px;
+    font-size: 1em;
+    margin-top: auto;
+    margin-bottom: 15px;
+    
+}
+
+@media (max-width: 700px) {
+    #subdiv-res{
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .answer-btn{
+        width: 90%;
+        margin-bottom: 15px;
+    }
 }
