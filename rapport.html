@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h3>Logo</h3>
+        <div>
+            <h2>Welcome</h2>
+        </div>
+    </header>
+
+    
+    <div id="container">
+        <button id="download-pdf">Download PDF</button>
+        <h1>Quiz Results</h1>
+        <div id="quiz-container"></div>
+        <div class="score" id="score-container"></div>
+    </div>
+    
+    <script>
+        // Function to generate content and display it
+        function print() {
+            let rapport = JSON.parse(localStorage.getItem("rapport"));
+            if (!rapport) {
+                console.error("No rapport found in localStorage!");
+                return;
+            }
+
+            const quizContainer = document.getElementById("quiz-container");
+            rapport.question.forEach((question, index) => {
+                const questionElement = document.createElement("div");
+                questionElement.classList.add("question");
+                questionElement.innerHTML = `<p>${index + 1}. ${question}</p>`;
+                
+                const responseElement = document.createElement("div");
+                responseElement.classList.add("response");
+                responseElement.innerHTML = `<p><strong>Réponse :</strong> ${rapport.reponsecorrect[index]}</p>`;
+                
+                const selectedResponseElement = document.createElement("div");
+                selectedResponseElement.classList.add("selected-response");
+                selectedResponseElement.innerHTML = `<p><strong>Réponse sélectionnée :</strong> ${rapport.responseselected[index]}</p>`;
+                
+                questionElement.appendChild(responseElement);
+                questionElement.appendChild(selectedResponseElement);
+                quizContainer.appendChild(questionElement);
+            });
+
+            const scoreContainer = document.getElementById("score-container");
+            scoreContainer.innerHTML = `<p>Score: ${rapport.score.score * 20}/20</p><p>Grade: ${rapport.score.grade}</p>`;
+        }
+        print();
+
+        // Download PDF functionality
+        document.getElementById("download-pdf").addEventListener("click", () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // Adding Title and Header
+            doc.setFontSize(16);
+            doc.text("Quiz Results", 20, 20);
+            
+            let y = 30;  // Starting y-position for the content
+            const rapport = JSON.parse(localStorage.getItem("rapport"));
+            if (rapport) {
+                // Loop through each question and its answers
+                rapport.question.forEach((question, index) => {
+                    if (y > 270) {  // If content reaches bottom of page (just before 280)
+                        doc.addPage();  // Add a new page
+                        y = 20;  // Reset y position for new page
+                    }
+
+                    // Wrap the question text using splitTextToSize
+                    const questionLines = doc.splitTextToSize(`${index + 1}. ${question}`, 170);
+                    questionLines.forEach(line => {
+                        doc.text(line, 20, y);
+                        y += 10;  // Move down after each line
+                    });
+
+                    // Wrap the answer text using splitTextToSize
+                    const responseLines = doc.splitTextToSize(`Réponse: ${rapport.reponsecorrect[index]}`, 170);
+                    responseLines.forEach(line => {
+                        doc.text(line, 20, y);
+                        y += 10;  // Move down after each line
+                    });
+                    
+                    // Wrap the selected answer text using splitTextToSize
+                    const selectedResponseLines = doc.splitTextToSize(`Réponse sélectionnée: ${rapport.responseselected[index]}`, 170);
+                    selectedResponseLines.forEach(line => {
+                        doc.text(line, 20, y);
+                        y += 10;  // Move down after each line
+                    });
+
+                    y += 15; // Add space before next question
+                });
+
+                // Before printing the score and grade, check if we need a new page
+                if (y > 270) {
+                    doc.addPage();  // Add a new page if content is too long
+                    y = 20;  // Reset y position for new page
+                }
+
+                // Wrap the score with splitTextToSize
+                const scoreLines = doc.splitTextToSize(`Score: ${rapport.score.score * 20}/20`, 170);
+                scoreLines.forEach(line => {
+                    doc.text(line, 20, y);
+                    y += 10;  // Move down after each line
+                });
+
+                // Wrap the grade with splitTextToSize
+                const gradeLines = doc.splitTextToSize(`Grade: ${rapport.score.grade}`, 170);
+                gradeLines.forEach(line => {
+                    doc.text(line, 20, y);
+                    y += 10;  // Move down after each line
+                });
+            }
+
+            // Saving the PDF
+            doc.save("quiz_results.pdf");
+        });
+    </script>
+</body>
+</html>
