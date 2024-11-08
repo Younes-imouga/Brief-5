@@ -196,6 +196,7 @@ input{
     border-radius: 10px; 
     background-color: #1BE8FF;
     margin-left: calc(50% - 75px);
+    margin-top: 20px;
 
 }
 #download-pdf:hover{
@@ -212,6 +213,7 @@ input{
     background-color: #1BE8FF;
     margin-left: -7.5px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 #Get-rapport:hover{
     background-color: #23adbd;

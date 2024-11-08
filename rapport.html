@@ -17,15 +17,15 @@
     </header>
 
     
+    <button id="download-pdf">Download PDF</button>
     <div id="container">
-        <button id="download-pdf">Download PDF</button>
         <h1>Quiz Results</h1>
         <div id="quiz-container"></div>
         <div class="score" id="score-container"></div>
     </div>
     
     <script>
-        // Function to generate content and display it
+        
         function print() {
             let rapport = JSON.parse(localStorage.getItem("rapport"));
             if (!rapport) {
@@ -57,71 +57,72 @@
         }
         print();
 
-        // Download PDF functionality
+        
         document.getElementById("download-pdf").addEventListener("click", () => {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             
-            // Adding Title and Header
-            doc.setFontSize(16);
+            
+            doc.setFontSize(8);
             doc.text("Quiz Results", 20, 20);
             
-            let y = 30;  // Starting y-position for the content
+            let y = 30;  
             const rapport = JSON.parse(localStorage.getItem("rapport"));
             if (rapport) {
-                // Loop through each question and its answers
+                
                 rapport.question.forEach((question, index) => {
-                    if (y > 270) {  // If content reaches bottom of page (just before 280)
-                        doc.addPage();  // Add a new page
-                        y = 20;  // Reset y position for new page
+                    if (y > 270) {  
+                        doc.addPage();  
+                        y = 7;  
                     }
 
-                    // Wrap the question text using splitTextToSize
+                    
                     const questionLines = doc.splitTextToSize(`${index + 1}. ${question}`, 170);
                     questionLines.forEach(line => {
                         doc.text(line, 20, y);
-                        y += 10;  // Move down after each line
+                        y += 5;  
                     });
+                    y += 10;
 
-                    // Wrap the answer text using splitTextToSize
+                    
                     const responseLines = doc.splitTextToSize(`Réponse: ${rapport.reponsecorrect[index]}`, 170);
                     responseLines.forEach(line => {
                         doc.text(line, 20, y);
-                        y += 10;  // Move down after each line
+                        y += 5;  
                     });
+                    y += 10;
                     
-                    // Wrap the selected answer text using splitTextToSize
                     const selectedResponseLines = doc.splitTextToSize(`Réponse sélectionnée: ${rapport.responseselected[index]}`, 170);
                     selectedResponseLines.forEach(line => {
                         doc.text(line, 20, y);
-                        y += 10;  // Move down after each line
+                        y += 5;  
                     });
 
-                    y += 15; // Add space before next question
+                    y += 7; 
                 });
 
-                // Before printing the score and grade, check if we need a new page
+                
                 if (y > 270) {
-                    doc.addPage();  // Add a new page if content is too long
-                    y = 20;  // Reset y position for new page
+                    doc.addPage();  
+                    y = 10;  
                 }
 
-                // Wrap the score with splitTextToSize
+                
                 const scoreLines = doc.splitTextToSize(`Score: ${rapport.score.score * 20}/20`, 170);
                 scoreLines.forEach(line => {
                     doc.text(line, 20, y);
-                    y += 10;  // Move down after each line
+                    y += 5;  
                 });
 
-                // Wrap the grade with splitTextToSize
+                
                 const gradeLines = doc.splitTextToSize(`Grade: ${rapport.score.grade}`, 170);
                 gradeLines.forEach(line => {
                     doc.text(line, 20, y);
-                    y += 10;  // Move down after each line
+                    y += 5;  
                 });
             }
 
-            // Saving the PDF
+            
             doc.save("quiz_results.pdf");
         });
     </script>
