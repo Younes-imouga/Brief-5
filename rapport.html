@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
@@ -17,13 +16,14 @@
     </header>
 
     
-    <button id="download-pdf">Download PDF</button>
     <div id="container">
         <h1>Quiz Results</h1>
         <div id="quiz-container"></div>
         <div class="score" id="score-container"></div>
     </div>
     
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         
         function print() {
@@ -42,10 +42,15 @@
                 const responseElement = document.createElement("div");
                 responseElement.classList.add("response");
                 responseElement.innerHTML = `<p><strong>Réponse :</strong> ${rapport.reponsecorrect[index]}</p>`;
+                responseElement.classList.add("correct-response");
                 
                 const selectedResponseElement = document.createElement("div");
                 selectedResponseElement.classList.add("selected-response");
-                selectedResponseElement.innerHTML = `<p><strong>Réponse sélectionnée :</strong> ${rapport.responseselected[index]}</p>`;
+                if (rapport.responseselected[index] == rapport.reponsecorrect[index]) {
+                    selectedResponseElement.innerHTML = `<p><strong style="color : green;">Réponse sélectionnée :</strong> ${rapport.responseselected[index]}</p>`;
+                }else{
+                    selectedResponseElement.innerHTML = `<p><strong style="color : red;">Réponse sélectionnée :</strong> ${rapport.responseselected[index]}</p>`;
+                }
                 
                 questionElement.appendChild(responseElement);
                 questionElement.appendChild(selectedResponseElement);
@@ -54,76 +59,14 @@
 
             const scoreContainer = document.getElementById("score-container");
             scoreContainer.innerHTML = `<p>Score: ${rapport.score.score * 20}/20</p><p>Grade: ${rapport.score.grade}</p>`;
+            console.log(rapport)
         }
         print();
 
-        
-        document.getElementById("download-pdf").addEventListener("click", () => {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            
-            doc.setFontSize(8);
-            doc.text("Quiz Results", 20, 20);
-            
-            let y = 30;  
-            const rapport = JSON.parse(localStorage.getItem("rapport"));
-            if (rapport) {
-                
-                rapport.question.forEach((question, index) => {
-                    if (y > 270) {  
-                        doc.addPage();  
-                        y = 7;  
-                    }
+        var element = document.getElementById("container");
+        console.log(html2pdf(element))
 
-                    
-                    const questionLines = doc.splitTextToSize(`${index + 1}. ${question}`, 170);
-                    questionLines.forEach(line => {
-                        doc.text(line, 20, y);
-                        y += 5;
-                    });
-                    y += 10;
 
-                    
-                    const responseLines = doc.splitTextToSize(`Réponse: ${rapport.reponsecorrect[index]}`, 170);
-                    responseLines.forEach(line => {
-                        doc.text(line, 20, y);
-                        y += 5;  
-                    });
-                    y += 10;
-                    
-                    const selectedResponseLines = doc.splitTextToSize(`Réponse sélectionnée: ${rapport.responseselected[index]}`, 170);
-                    selectedResponseLines.forEach(line => {
-                        doc.text(line, 20, y);
-                        y += 5;  
-                    });
-
-                    y += 7; 
-                });
-
-                
-                if (y > 270) {
-                    doc.addPage();  
-                    y = 10;  
-                }
-
-                
-                const scoreLines = doc.splitTextToSize(`Score: ${rapport.score.score * 20}/20`, 170);
-                scoreLines.forEach(line => {
-                    doc.text(line, 20, y);
-                    y += 5;  
-                });
-
-                
-                const gradeLines = doc.splitTextToSize(`Grade: ${rapport.score.grade}`, 170);
-                gradeLines.forEach(line => {
-                    doc.text(line, 20, y);
-                    y += 5;  
-                });
-            }
-
-            
-            doc.save("quiz_results.pdf");
-        });
     </script>
 </body>
 </html>

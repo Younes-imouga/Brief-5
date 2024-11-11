@@ -40,12 +40,12 @@ function shuffle(array){
 let test = shuffle([...quiz]);
 
 let rapport = JSON.parse(localStorage.getItem("rapport"));
+let questioncount = JSON.parse(localStorage.getItem("questioncount"));
 let previousresults = JSON.parse(localStorage.getItem('previousresults')) || { score: "empty", grade: "empty" };
 const startbtn = document.getElementById("start");
 const restartbtn = document.querySelector("#restart");
 const section = document.getElementById("quiz-section");
 
-let questioncount = 0;
 let pointscount = 0;
 let quizanswer;
 let selectedananswer = false;
@@ -53,10 +53,12 @@ let selectedananswer = false;
 if (previousresults.score !== "empty") {
     const resultp = document.querySelector("#result-p");
     resultp.style.display = "block";
-    resultp.textContent = `You got ${previousresults.score * 20}/${test.length} questions correct last time. Your grade was ${previousresults.grade}.`;
+    resultp.textContent = `You got ${previousresults.score * 20}/${questioncount} questions correct last time. Your grade was ${previousresults.grade}.`;
 }
 
-    rapport = {question: [], reponsecorrect: [], responseselected: [], reponse: [], score : {}};
+questioncount = 0;
+
+rapport = {question: [], reponsecorrect: [], responseselected: [], reponse: [], score : {}};
 
 
 
@@ -111,7 +113,6 @@ function displayquestions() {
     `;
 
     rapport.question.push(test[questioncount].question);
-    console.log(rapport)
 
     const questionObj = test[questioncount];
     rapport.reponsecorrect.push([questionObj[`response${questionObj.answer}`]]);
@@ -190,7 +191,7 @@ function timer() {
 
 function nextquestion() {
     clearInterval(timerInterval);
-    if (questioncount < test.length) {
+    if (questioncount < 10) {
         timer();
         setTimeout(() => {
             displayquestions();
@@ -217,7 +218,7 @@ function result() {
     resultp.style.display = "block";
     restartbtn.style.display = "block";
     ahref.style.display = "block";
-    resultp.textContent = `You got ${pointscount}/${test.length} questions correct. Your grade is ${grade}.`;
+    resultp.textContent = `You got ${pointscount}/${questioncount} questions correct. Your grade is ${grade}.`;
 
     document.getElementById("quiz").style.display = "none";
     document.getElementById("timer-p").style.display = "none";
@@ -227,6 +228,7 @@ function result() {
     rapport.score = temp;
 
     localStorage.setItem("previousresults", JSON.stringify(previousresults));
+    localStorage.setItem("questioncount", JSON.stringify(questioncount));
     localStorage.setItem("rapport", JSON.stringify(rapport));
 }
 

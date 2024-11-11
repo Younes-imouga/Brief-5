@@ -194,22 +194,6 @@ input{
     margin-top: 20px;
 }
 
-#download-pdf{
-    width: 150px;
-    height: 40px; 
-    border-radius: 10px; 
-    background-color: #1BE8FF;
-    margin-left: calc(50% - 75px);
-    margin-top: 20px;
-
-}
-#download-pdf:hover{
-    background-color: #23adbd;
-}
-#download-pdf:active{
-    background-color: #77d0da;
-}
-
 #Get-rapport{
     width: 150px;
     height: 40px; 
