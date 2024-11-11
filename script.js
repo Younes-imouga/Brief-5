@@ -21,7 +21,6 @@ const quiz = [
     { question: "Complétez cette phrase : 'J'ai ___ livre.'", response1: "Un - pour désigner un seul objet masculin au singulier.", response2: "Des - pour plusieurs objets, mais ici il s'agit d'un seul.", response3: "Le - article défini, mais la phrase implique un article indéfini.", answer: "1" },
 ];
 
-let rapport = JSON.parse(localStorage.getItem("rapport"));
 
 function shuffle(array){
     const num = 5;
@@ -39,6 +38,8 @@ function shuffle(array){
 
 
 let test = shuffle([...quiz]);
+
+let rapport = JSON.parse(localStorage.getItem("rapport"));
 let previousresults = JSON.parse(localStorage.getItem('previousresults')) || { score: "empty", grade: "empty" };
 const startbtn = document.getElementById("start");
 const restartbtn = document.querySelector("#restart");
@@ -55,11 +56,7 @@ if (previousresults.score !== "empty") {
     resultp.textContent = `You got ${previousresults.score * 20}/${test.length} questions correct last time. Your grade was ${previousresults.grade}.`;
 }
 
-if (rapport) {
     rapport = {question: [], reponsecorrect: [], responseselected: [], reponse: [], score : {}};
-}else{
-    let rapport = {question: [], reponsecorrect: [], responseselected: [], reponse: [], score : {}};
-}
 
 
 
@@ -114,6 +111,7 @@ function displayquestions() {
     `;
 
     rapport.question.push(test[questioncount].question);
+    console.log(rapport)
 
     const questionObj = test[questioncount];
     rapport.reponsecorrect.push([questionObj[`response${questionObj.answer}`]]);
@@ -248,11 +246,5 @@ restartbtn.addEventListener("click", () => {
         displayquestions();
     }, 1000);
   
-
-    if (rapport) {
-        rapport = {question: [], reponsecorrect: [], responseselected: [], reponse: [], score : {}};
-    }else{
-        let rapport = {question: [], reponsecorrect: [], responseselected: [], reponse: [], score : {}};
-    }
-    
+    rapport = {question: [], reponsecorrect: [], responseselected: [], reponse: [], score : {}};
 }); 
