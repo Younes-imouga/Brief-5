@@ -63,6 +63,10 @@ header{
     width: 30%;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #response-div{

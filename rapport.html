@@ -62,7 +62,6 @@
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             
-            
             doc.setFontSize(8);
             doc.text("Quiz Results", 20, 20);
             
@@ -80,7 +79,7 @@
                     const questionLines = doc.splitTextToSize(`${index + 1}. ${question}`, 170);
                     questionLines.forEach(line => {
                         doc.text(line, 20, y);
-                        y += 5;  
+                        y += 5;
                     });
                     y += 10;
 

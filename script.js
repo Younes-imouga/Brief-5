@@ -1,25 +1,25 @@
 const quiz = [
-    { question: "What does “ça me manque” mean?", response1: "I don’t want it – Incorrect; “ça me manque” relates to missing something, not rejection.", response2: "I miss it – Expresses longing for something, literally “it is missing to me.”", response3: "I have it – Does not relate to possession; it’s about the absence of something.", answer: 2 },
-    { question: "What’s the correct way to say “I will go” in French?", response1: "Je vais aller – Present continuous meaning “I’m going to go” but less definitive.", response2: "Je suis allé – Past form meaning “I went,” not related to future intention.", response3: "J’irai – Future form of “aller” meaning “I will go” with an emphasis on future intent.", answer: 3 },
-    { question: "Which expression means “I can’t believe it”?", response1: "Je n’en reviens pas – Common expression to express disbelief or surprise at something.", response2: "Je n’y pense pas – Means “I’m not thinking about it,” not disbelief.", response3: "Je ne le fais pas – Means “I don’t do it”; doesn’t convey disbelief.", answer: 1 },
-    { question: "What does “faire la grasse matinée” mean?", response1: "To have a lazy day – Close but incorrect; it’s more specifically about sleeping late.", response2: "To sleep in – Refers to staying in bed late, literally “to make a fat morning.”", response3: "To eat breakfast – Not related; it means relaxing in bed, not eating.", answer: 2 },
-    { question: "What’s the meaning of “C’est dommage”?", response1: "That’s amazing – Opposite of regret; “dommage” implies sadness or disappointment.", response2: "That’s too bad – Used to express regret or disappointment about a situation.", response3: "That’s funny – Incorrect, as “dommage” has no humor; it conveys regret.", answer: 2 },
-    { question: "What does “il pleut des cordes” mean?", response1: "It’s windy – Incorrect, as it describes rain and not wind intensity.", response2: "It’s raining heavily – A French idiom comparing heavy rain to falling ropes.", response3: "It’s snowing – This phrase only applies to rain, not snow.", answer: 2 },
-    { question: "What does “mettre les pieds dans le plat” mean?", response1: "To start cooking – Incorrect; it’s a social misstep, not culinary.", response2: "To make a blunder – Idiomatic for causing discomfort or awkwardness in conversation.", response3: "To dance – No connection; this idiom doesn’t relate to dancing.", answer: 2 },
-    { question: "How do you say “I have been working” in French?", response1: "Je travaille – Present tense, “I work” or “I am working” right now.", response2: "Je travaille depuis – Suggests an ongoing action starting in the past.", response3: "J’ai travaillé – Implies a completed action, meaning “I worked” in the past tense.", answer: 2 },
-    { question: "What does “être aux anges” mean?", response1: "To be overjoyed – Expresses a feeling of extreme happiness, like being in heaven.", response2: "To be confused – Incorrect; this idiom is about joy, not confusion.", response3: "To be afraid – Opposite; “aux anges” implies a state of bliss.", answer: 1 },
-    { question: "What is “se mettre au travail”?", response1: "To get to work – Refers to beginning or resuming a work-related task or activity.", response2: "To finish working – Not correct; it means to start, not finish, working.", response3: "To leave work – Incorrect, as it means to start, not end, work.", answer: 1 },
-    { question: "What does “tomber dans les pommes” mean?", response1: "To get angry – Incorrect; this idiom implies weakness, not anger.", response2: "To faint – French idiom used for passing out, literally “falling into apples.”", response3: "To cry – No relation to crying; it means fainting or losing consciousness.", answer: 2 },
-    { question: "Which word means “to improve” in French?", response1: "Aggraver – Means “to worsen,” opposite of improving.", response2: "Améliorer – Correct; this verb means to make something better.", response3: "Diminuer – Incorrect; it means “to reduce” or “to make smaller.”", answer: 2 },
-    { question: "What’s the meaning of “à l’aise”?", response1: "Comfortable – Means feeling relaxed or at ease in a situation.", response2: "Angry – Incorrect, as it doesn’t imply any negative feelings.", response3: "In pain – Incorrect; “à l’aise” conveys comfort, not discomfort.", answer: 1 },
-    { question: "What does “être crevé” mean?", response1: "To be exhausted – Slang for extreme tiredness, like saying “worn out.”", response2: "To be happy – Incorrect, as “crevé” implies fatigue, not happiness.", response3: "To be energized – Opposite meaning, since “crevé” implies fatigue.", answer: 1 },
-    { question: "What is the meaning of “ce n’est pas grave”?", response1: "It’s dangerous – Not correct; it’s a casual way of downplaying an issue.", response2: "It’s very important – Opposite meaning; “grave” here negates importance.", response3: "It’s not serious – Common way to reassure someone that something is minor.", answer: 3 },
-    { question: "What does “prêt à l’emploi” mean?", response1: "Easy to break – Incorrect; this phrase implies usability, not fragility.", response2: "Difficult to use – Opposite meaning, as it implies readiness for use.", response3: "Ready to use – Common phrase for something prepared for immediate use.", answer: 3 },
-    { question: "What is “c’est n’importe quoi”?", response1: "That’s awesome – Incorrect; it’s a negative phrase about something illogical.", response2: "That’s nonsense – Used to express disbelief or disdain toward something illogical.", response3: "That’s normal – Incorrect; implies something nonsensical, not standard.", answer: 2 },
-    { question: "What does “rendre visite à” mean?", response1: "To visit someone – Specifically means visiting people, not places or landmarks.", response2: "To take back – Incorrect; this is about visiting, not reclaiming items.", response3: "To arrive – Incorrect, as it implies meeting, not simply arriving.", answer: 1 },
-    { question: "Which phrase means “see you soon” in French?", response1: "À bientôt – Friendly way to express that you’ll meet again soon.", response2: "Salut – Informal greeting or goodbye, less specific about timing.", response3: "Au revoir – Common farewell, but less specific about meeting soon.", answer: 1 },
-    { question: "What does “faire d’une pierre deux coups” mean?", response1: "To make an effort – Incorrect; it implies efficiency, not effort alone.", response2: "To miss the target – Incorrect; it means achieving two things, not failing.", response3: "Kill two birds with one stone – French idiom meaning to achieve two goals at once.", answer: 3 }
-]
+    { question: "Quel mot signifie 'to eat' en français ?", response1: "Dormir - cela signifie se reposer en fermant les yeux pour récupérer de l'énergie. Il n'a rien à voir avec l'acte de consommer de la nourriture.", response2: "Manger - ce verbe est utilisé pour exprimer l'acte de consommer des aliments, ce qui est essentiel pour se nourrir et maintenir son énergie.", response3: "Parler - cela signifie communiquer avec des mots ou des gestes pour échanger des idées avec d'autres, sans lien direct avec l'alimentation.", answer: "2" },
+    { question: "Quel est le pronom sujet pour remplacer 'Marc et moi' ?", response1: "Ils - ce pronom est employé pour parler de plusieurs personnes sans inclure le locuteur, et est généralement utilisé pour un groupe masculin ou mixte.", response2: "Vous - un pronom formel utilisé pour s'adresser à une personne ou à un groupe de manière respectueuse, mais ne convient pas pour 'Marc et moi'.", response3: "Nous - ce pronom inclut le locuteur et au moins une autre personne, donc il remplace bien 'Marc et moi'.", answer: "3" },
+    { question: "Conjuguez le verbe avoir au présent pour 'nous'.", response1: "Ai - cette conjugaison est utilisée uniquement avec le pronom 'je' pour indiquer la possession, par exemple 'J'ai un livre', et ne s'applique pas à 'nous'.", response2: "Avez - la forme 'avez' est la conjugaison pour 'vous' au présent et est utilisée pour indiquer la possession pour une deuxième personne au singulier formel ou pluriel.", response3: "Avons - cette forme du verbe 'avoir' est utilisée avec 'nous' et indique que le groupe possède quelque chose, comme dans 'Nous avons des livres'.", answer: "3" },
+    { question: "Quelle est la bonne traduction de 'I am happy' en français ?", response1: "Je suis triste - cette phrase signifie le contraire d'être heureux. Elle exprime un sentiment de tristesse ou de mécontentement, donc elle ne traduit pas correctement 'I am happy'.", response2: "Je suis heureux - cette expression est utilisée pour exprimer un sentiment de bonheur ou de satisfaction et est la traduction correcte de 'I am happy'.", response3: "Je suis fatigué - cela indique un état d'épuisement physique, qui est lié à un manque d'énergie, mais ne traduit pas un sentiment de bonheur.", answer: "2" },
+    { question: "Quel est l'antonyme de 'grand' ?", response1: "Petit - ce mot est utilisé pour décrire quelque chose de petite taille ou de faible longueur, ce qui est l'opposé direct de 'grand'.", response2: "Joli - cela décrit la beauté ou l'esthétique, mais il n'a pas de relation directe avec la taille ou la longueur.", response3: "Long - ce mot fait référence à la dimension horizontale ou verticale d'un objet, mais ce n'est pas un antonyme de 'grand' dans le contexte de taille.", answer: "1" },
+    { question: "Quel verbe est utilisé pour dire 'to go' en français ?", response1: "Manger - signifie consommer de la nourriture pour se nourrir, sans rapport avec le déplacement ou le mouvement.", response2: "Aller - ce verbe est utilisé pour indiquer un mouvement d'un endroit à un autre, comme dans 'Je vais à l'école', correspondant au verbe 'to go'.", response3: "Vivre - cela signifie être en vie ou résider dans un endroit, mais ne décrit pas l'action de se déplacer d'un lieu à un autre.", answer: "2" },
+    { question: "Complétez la phrase : 'Il fait ___ aujourd'hui.'", response1: "Chaud - un terme pour décrire une température élevée, souvent ressenti en été.", response2: "Froid - un terme pour indiquer une température basse, typique en hiver.", response3: "Bon - ne correspond pas ici à un terme météorologique spécifique, mais pourrait être une impression générale.", answer: "1" },
+    { question: "Quel est le pronom relatif qui complète cette phrase : 'Le livre ___ est sur la table.' ?", response1: "Que - utilisé pour relier un complément d'objet direct au nom précédent, ici 'le livre'.", response2: "Qui - pronom sujet qui relie une phrase, mais pas le complément d'objet direct.", response3: "Dont - indique une relation de possession, mais ne correspond pas dans ce cas particulier.", answer: "1" },
+    { question: "Complétez la phrase : '___ tu veux venir ?'", response1: "Que - n'est pas adapté ici pour questionner sur un désir ou une volonté de venir.", response2: "Quand - utilisé pour interroger sur le moment, mais ici on parle de volonté de venir.", response3: "Pourquoi - utilisé pour demander la raison de quelque chose, ce qui est plus approprié dans ce cas.", answer: "2" },
+    { question: "Choisissez la conjugaison correcte du verbe 'être' pour 'il'.", response1: "Suis - forme pour 'je', comme dans 'Je suis heureux'.", response2: "Es - forme pour 'tu', comme dans 'Tu es gentil'.", response3: "Est - utilisé avec 'il', comme dans 'Il est content'.", answer: "3" },
+    { question: "Quel est l'adjectif pour décrire un objet qui a une bonne odeur ?", response1: "Mauvais - pour décrire quelque chose de désagréable, pas une odeur agréable.", response2: "Délicieux - qualifie le goût, pas directement une odeur.", response3: "Parfumé - pour décrire un objet ayant une odeur agréable, souvent utilisé pour des fleurs ou des parfums.", answer: "3" },
+    { question: "Que signifie l'expression 'avoir la pêche' ?", response1: "Être fatigué - indique un état de manque d'énergie, contraire à 'avoir la pêche'.", response2: "Être en forme - signifie être énergique et en bonne santé.", response3: "Être triste - sentiment opposé à un état énergique ou joyeux.", answer: "2" },
+    { question: "Comment dit-on 'I like to read' en français ?", response1: "J'aime lire - indique une préférence pour la lecture en général.", response2: "Je mange lire - combinaison incorrecte de verbes.", response3: "J'aime courir - indique une préférence pour une activité physique différente.", answer: "1" },
+    { question: "Complétez la phrase avec la bonne option : 'Elle est plus ___ que moi.'", response1: "Vite - adjectif de vitesse, mais pas utilisé pour une comparaison de capacité en ce contexte.", response2: "Rapide - décrit une capacité de rapidité relative.", response3: "Lente - adjectif contraire de rapide, mais n'est pas l'option ici.", answer: "2" },
+    { question: "Quel est l'intrus parmi ces mots ?", response1: "Voiture - un moyen de transport terrestre.", response2: "Bicyclette - un autre moyen de transport terrestre.", response3: "Avion - un moyen de transport aérien, différent des autres.", answer: "3" },
+    { question: "Quelle est la traduction de 'Thank you very much' en français ?", response1: "Merci beaucoup - pour exprimer sa gratitude de manière renforcée.", response2: "Je vous en prie - utilisé pour répondre à 'merci', signifiant 'de rien'.", response3: "Excusez-moi - pour attirer l'attention ou s'excuser.", answer: "1" },
+    { question: "Que signifie 'être dans la lune' ?", response1: "Être distrait - signifie être perdu dans ses pensées.", response2: "Être fatigué - possible, mais ce n'est pas la signification première.", response3: "Être heureux - ne décrit pas un état de distraction.", answer: "1" },
+    { question: "Quel est l'infinitif du verbe 'je mange' ?", response1: "Manger - forme de base pour exprimer l'action de manger.", response2: "Mange - conjugaison pour 'je', première personne du singulier.", response3: "Mangera - forme au futur pour une action à venir.", answer: "1" },
+    { question: "Que dit-on pour dire 'Good morning' en français ?", response1: "Bonsoir - pour 'good evening' ou 'good night'.", response2: "Bonjour - pour saluer quelqu'un le matin ou en début de journée.", response3: "Salut - forme plus informelle utilisée tout au long de la journée.", answer: "2" },
+    { question: "Complétez cette phrase : 'J'ai ___ livre.'", response1: "Un - pour désigner un seul objet masculin au singulier.", response2: "Des - pour plusieurs objets, mais ici il s'agit d'un seul.", response3: "Le - article défini, mais la phrase implique un article indéfini.", answer: "1" },
+];
 
 let rapport = JSON.parse(localStorage.getItem("rapport"));
 
@@ -39,7 +39,7 @@ function shuffle(array){
 
 
 let test = shuffle([...quiz]);
-let previousresults = JSON.parse(localStorage.getItem('result')) || { score: "empty", grade: "empty" };
+let previousresults = JSON.parse(localStorage.getItem('previousresults')) || { score: "empty", grade: "empty" };
 const startbtn = document.getElementById("start");
 const restartbtn = document.querySelector("#restart");
 const section = document.getElementById("quiz-section");
@@ -49,10 +49,10 @@ let pointscount = 0;
 let quizanswer;
 let selectedananswer = false;
 
-if (rapport.score !== "empty") {
+if (previousresults.score !== "empty") {
     const resultp = document.querySelector("#result-p");
     resultp.style.display = "block";
-    resultp.textContent = `You got ${rapport.score.score * 20}/${test.length} questions correct last time. Your grade was ${rapport.score.grade}.`;
+    resultp.textContent = `You got ${previousresults.score * 20}/${test.length} questions correct last time. Your grade was ${previousresults.grade}.`;
 }
 
 if (rapport) {
@@ -60,6 +60,8 @@ if (rapport) {
 }else{
     let rapport = {question: [], reponsecorrect: [], responseselected: [], reponse: [], score : {}};
 }
+
+
 
 startbtn.addEventListener("click", () => {
     timer();
@@ -222,11 +224,11 @@ function result() {
     document.getElementById("quiz").style.display = "none";
     document.getElementById("timer-p").style.display = "none";
 
-    let temp = { score, grade };
+    let temp = {score, grade};
     previousresults = temp;
-
     rapport.score = temp;
 
+    localStorage.setItem("previousresults", JSON.stringify(previousresults));
     localStorage.setItem("rapport", JSON.stringify(rapport));
 }
 
@@ -235,14 +237,22 @@ restartbtn.addEventListener("click", () => {
     questioncount = 0;
     test = shuffle([...quiz]);
 
-    clearInterval(timerInterval);
-    document.getElementById("quiz").style.display = "block";
-    document.querySelector("#result-p").style.display = "none";
 
+    clearInterval(timerInterval);
+        
     section.style.display = "block";
     timer();
     setTimeout(() => {
+        document.getElementById("quiz").style.display = "block";
+        document.querySelector("#result-p").style.display = "none";
         displayquestions();
     }, 1000);
-});
+  
 
+    if (rapport) {
+        rapport = {question: [], reponsecorrect: [], responseselected: [], reponse: [], score : {}};
+    }else{
+        let rapport = {question: [], reponsecorrect: [], responseselected: [], reponse: [], score : {}};
+    }
+    
+}); 
